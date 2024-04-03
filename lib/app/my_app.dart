@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../ui/screens/auth/login/login_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 CustomTransitionPage buildPageWithDefaultTransition({
   required BuildContext context,
@@ -25,7 +27,6 @@ class MyApp extends StatefulWidget {
   MyApp({
     Key? key,
   }) : super(key: key);
-
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -94,9 +95,19 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      locale: const Locale('ru', 'RU'),
       debugShowCheckedModeBanner: false,
       routerConfig: _router,
-      // supportedLocales: [Locale('en', 'US')],
+      supportedLocales: const [
+        Locale('ru', 'RU'),
+        Locale('en', 'US'),
+      ],
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
     );
   }
 }

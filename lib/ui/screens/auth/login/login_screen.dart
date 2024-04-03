@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:w_sharme_beauty/resources/app_styles.dart';
 import 'package:w_sharme_beauty/ui/screens/auth/login/widgets/text_field_widget.dart';
+import 'package:w_sharme_beauty/ui/screens/auth/widgets/main_button.dart';
 
 import '../../../../l10n/strings.dart';
 
@@ -35,45 +36,70 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("=========================jghugiw ${AppLocalizations.of(context)}");
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 18),
-              child: Text(
-                //Strings.of(context).authorize,
-                'Авторизоваться',
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(),
+              Text(
+                AppLocalizations.of(context).authorize,
                 style: AppStyles.helper2,
               ),
-            ),
-            const Gap(20),
-            Padding(
-              padding: const EdgeInsets.only(left: 18),
-              child: Text(
-                // Strings.of(context).toUseService,
+              const Gap(20),
+              Text(
                 'Что-бы пользоваться сервисом на любом устройстве.',
                 style: AppStyles.helper3,
               ),
-            ),
-            const Gap(30),
-            TextFieldWidget(
-              controller: emailController,
-              hintText: 'Эл.адрес или номер телефона',
-              textInputType: TextInputType.emailAddress,
-            ),
-            Gap(12.h),
-            TextFieldWidget(
-              controller: passwordController,
-              hintText: 'Введите пароль',
-              hasEye: true,
-              isObscuredText: true,
-            ),
-          ],
+              const Gap(30),
+              TextFieldWidget(
+                controller: emailController,
+                hintText: 'Эл.адрес или номер телефона',
+                textInputType: TextInputType.emailAddress,
+              ),
+              Gap(12.h),
+              TextFieldWidget(
+                controller: passwordController,
+                hintText: 'Введите пароль',
+                hasEye: true,
+                isObscuredText: true,
+              ),
+              const Gap(10),
+              Align(
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Text(
+                    'Забыли пароль?',
+                    style: AppStyles.helper4,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              MainButton(
+                onTap: () {},
+                text: 'Войти',
+              ),
+              const Gap(20),
+              Align(
+                alignment: Alignment.center,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Text(
+                    'Регистрация',
+                    style: AppStyles.helper4,
+                  ),
+                ),
+              ),
+              const Gap(50),
+            ],
+          ),
         ),
       ),
     );

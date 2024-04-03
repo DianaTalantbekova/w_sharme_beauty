@@ -22,4 +22,10 @@ class AppStyles {
     color: Colors.black,
     fontWeight: FontWeight.w400,
   );
+  static final helper4 = TextStyle(
+    fontFamily: 'Gteestiprodisplay',
+    fontSize: 14.r,
+    color: AppColors.purple,
+    fontWeight: FontWeight.w500,
+  );
 }
